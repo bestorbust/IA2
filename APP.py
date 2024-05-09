@@ -165,6 +165,8 @@ def book_appointment():
         conn.close()
         return render_template('book_appointment.html', patients=patients, doctors=doctors)
 if __name__ == '__main__':
+    init_db()
+    app.run(port=9001)
     with app.app_context():
         conn = get_db_connection()
         cursor = conn.cursor()
